@@ -8,6 +8,7 @@
  * Author URI:  https://themeforest.net/user/bravis-themes/
  * Update URI:  https://api.bravisthemes.com/
  * Text Domain: pixelart-core
+ * Domain Path: /languages
  */
 
 use Elementor\Plugin;
@@ -44,6 +45,7 @@ class Pxltheme_Core
 
         add_action('admin_init', [$this, 'pxl_admin_init'], 10, 1);
         add_action('init', [$this, 'pxl_init']);
+        add_action('init', [$this, 'pxl_load_textdomain'], 1);
         add_action('admin_enqueue_scripts', array($this, 'pxl_admin_enqueue_scripts'));
         add_action('wp_enqueue_scripts', array($this, 'pxl_register_script'), 3);
         add_action('plugins_loaded', [$this, 'pxl_handler']);
@@ -137,9 +139,17 @@ class Pxltheme_Core
         }
     }
 
+    public function pxl_load_textdomain()
+    {
+        load_plugin_textdomain(PXL_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages/');
+    }
+
     public function pxl_admin_enqueue_scripts()
     {
         wp_enqueue_style('pxl-admin-css', PXL_URL . 'assets/css/admin.css', [], '1.0.0');
+        if (is_rtl()) {
+            wp_enqueue_style('pxl-admin-rtl-css', PXL_URL . 'assets/css/admin-rtl.css', ['pxl-admin-css'], '1.0.0');
+        }
         wp_enqueue_script('pxl-admin-js', PXL_URL . 'assets/js/pxl-admin.js', [ 'jquery' ], '1.0.0', true);
     }
 
@@ -148,6 +158,9 @@ class Pxltheme_Core
         $awesome_pro_support = apply_filters('pxl_support_awesome_pro', true);
         /* Styles */
         wp_enqueue_style('pxl-main-css', PXL_URL . 'assets/css/main.css', [], '1.0.0');
+        if (is_rtl()) {
+            wp_enqueue_style('pxl-main-rtl-css', PXL_URL . 'assets/css/main-rtl.css', ['pxl-main-css'], '1.0.0');
+        }
         if ($awesome_pro_support)
             wp_register_style('font-awesome-pro', PXL_URL . 'assets/libs/font-awesome-pro/css/all.min.css', [], '5.15.4-pro');
 
