@@ -229,9 +229,6 @@ class Pxltheme_Core
 
         if (defined('ELEMENTOR_VERSION') && is_callable('Elementor\Plugin::instance')) {
             include_once PXL_PATH . 'inc/elementor/pxl-elementor.php';
-        }
-        
-        if (defined('ELEMENTOR_VERSION') && is_callable('Elementor\Plugin::instance')) {
             include_once PXL_PATH . 'inc/elementor/template-library/manager.php';
         }
 
@@ -247,7 +244,7 @@ class Pxltheme_Core
         ?>
         <div class="updated not-h2">
             <p>
-                <strong><?php echo sprintf(esc_html__('Please activate the right theme to use "%1$s" plugin.', PXL_TEXT_DOMAIN), $this->plugin_name); ?></strong>
+                <strong><?php echo sprintf(esc_html__('Please activate the right theme to use "%1$s" plugin.', PXL_TEXT_DOMAIN), esc_html($this->plugin_name)); ?></strong>
             </p>
             <?php
             $screen = get_current_screen();
@@ -407,19 +404,18 @@ class Pxltheme_Core
 
     function redux_framework_notice()
     {
-        $plugin_name = '<strong>' . $this->plugin_name . '</strong>';
-        $redux_name = '<strong>' . esc_html__("Redux Framework", PXL_TEXT_DOMAIN) . '</strong>';
-
-        echo '<div class="notice notice-warning is-dismissible">';
-        echo '<p>';
-        printf(
-            esc_html__('%1$s require %2$s installed and activated. Please active %3$s plugin', PXL_TEXT_DOMAIN),
+        $plugin_name = '<strong>' . esc_html( $this->plugin_name ) . '</strong>';
+        $redux_name  = '<strong>' . esc_html__( 'Redux Framework', PXL_TEXT_DOMAIN ) . '</strong>';
+        $message = sprintf(
+            /* translators: 1: plugin name, 2: required plugin name */
+            __( '%1$s require %2$s installed and activated. Please active %3$s plugin', PXL_TEXT_DOMAIN ),
             $plugin_name,
             $redux_name,
             $redux_name
         );
-        echo '</p>';
-        printf('<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__('Dismiss this notice.', PXL_TEXT_DOMAIN));
+        echo '<div class="notice notice-warning is-dismissible">';
+        echo '<p>' . wp_kses( $message, [ 'strong' => [] ] ) . '</p>';
+        printf( '<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Dismiss this notice.', PXL_TEXT_DOMAIN ) );
         echo '</div>';
     }
 

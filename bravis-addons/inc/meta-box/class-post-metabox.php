@@ -239,7 +239,7 @@ class PXL_Post_Metabox
 
         if (!empty($section['id'])) {
             if ($this->section_exist($section['id'], $post_type)) {
-                trigger_error(esc_html__('Section', PXL_TEXT_DOMAIN) . ' ' . esc_html($field['id']) . ' ' . esc_html__('for post type', PXL_TEXT_DOMAIN) . ' ' . esc_html($post_type) . ' ' . esc_html__('is already registered.', PXL_TEXT_DOMAIN));
+                trigger_error(esc_html__('Section', PXL_TEXT_DOMAIN) . ' ' . esc_html($section['id']) . ' ' . esc_html__('for post type', PXL_TEXT_DOMAIN) . ' ' . esc_html($post_type) . ' ' . esc_html__('is already registered.', PXL_TEXT_DOMAIN));
 
                 return;
             } else {
@@ -342,8 +342,6 @@ class PXL_Post_Metabox
                     $priority,
                     array('p' => $post_type)
                 );
-
-                update_option($panel['args']['opt_name'], $this->get_values());
 
                 $this->list_screen[] = $panel['args']['opt_name'];
                 add_filter("postbox_classes_{$post_type}_{$panel['args']['opt_name']}", array(
@@ -449,13 +447,13 @@ class PXL_Post_Metabox
                     unset($data_to_save[$key]);
                 }
 
-                $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
+                $prev_value = get_post_meta( $post_id, $key, true );
 
                 // Only use registered field ids.
                 if (array_key_exists($key, $data_to_compare)) {
                     // If it is validated, save it.
                     if (isset($data_to_save[$key])) {
-                        update_post_meta($post_id, $key, $data_to_save[$key], $prev_value = '');
+                        update_post_meta($post_id, $key, $data_to_save[$key], $prev_value);
                     }
                 }
             }
@@ -474,7 +472,7 @@ class PXL_Post_Metabox
         $post_format = !empty($_REQUEST['post_format']) ? sanitize_text_field(wp_unslash($_REQUEST['post_format'])) : '';
         if (!empty($post_format)) {
             $pxl_pf_panel = 'pxl_pf_' . $post_format;
-            $post_format_type = !empty($_POST['post_format_' . $post_format]) ? $_POST['post_format_' . $post_format] : '';
+            $post_format_type = !empty($_POST['post_format_' . $post_format]) ? sanitize_text_field( wp_unslash( $_POST['post_format_' . $post_format] ) ) : '';
             if (in_array($pxl_pf_panel, $this->post_types) && !empty($_POST[$this->panels[$pxl_pf_panel]['args']['opt_name']]) && !empty($post_format_type)) {
                 $opt_name = $this->panels[$pxl_pf_panel]['args']['opt_name'];
                 $sections_post_format = $this->get_opt_sections($pxl_pf_panel);
@@ -505,13 +503,13 @@ class PXL_Post_Metabox
                         unset($data_to_save_pfm[$key]);
                     }
 
-                    $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
+                    $prev_value = get_post_meta( $post_id, $key, true );
 
                     // Only use registered field ids.
                     if (array_key_exists($key, $data_to_compare_pfm)) {
                         // If it is validated, save it.
                         if (isset($data_to_save_pfm[$key])) {
-                            update_post_meta($post_id, $key, $data_to_save_pfm[$key], $prev_value = '');
+                            update_post_meta($post_id, $key, $data_to_save_pfm[$key], $prev_value);
                         }
                     }
                 }
@@ -794,7 +792,7 @@ class PXL_Post_Metabox
         wp_enqueue_script('pxl-metabox', PXL_URL . '/assets/js/metabox' . Redux_Functions::isMin() . '.js', array(
             'jquery',
             'redux-js'
-        ), self::$version, 'all');
+        ), self::$version, true);
 
         wp_localize_script(
             'pxl-metabox',

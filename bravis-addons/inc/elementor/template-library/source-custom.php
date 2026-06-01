@@ -133,8 +133,12 @@ class Source_Custom extends Source_Base {
 		return $library_data;
 	}
 	
-	private static function get_info_data( $force_update = false ) { 
- 		global $wp_filesystem;
+	private static function get_info_data( $force_update = false ) {
+		global $wp_filesystem;
+		if ( ! function_exists( 'WP_Filesystem' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+		}
+		WP_Filesystem();
  		$cache_key = self::TIMESTAMP_CACHE_KEY;
 		$update_timestamp = get_transient( $cache_key );
  		
@@ -144,9 +148,9 @@ class Source_Custom extends Source_Base {
  		$info_data = []; 
  
 		if ( $force_update || ! $update_timestamp || $update_timestamp != $elementor_update_timestamp ) {
-			if( file_exists($info_file_path) ){
- 
-				$info_data = json_decode( $wp_filesystem->get_contents( $info_file_path ), true); 
+			if( file_exists($info_file_path) && ! is_null( $wp_filesystem ) ){
+
+				$info_data = json_decode( $wp_filesystem->get_contents( $info_file_path ), true);
 	 			
 				if ( isset( $info_data['library'] ) ) {
 					if( !empty($info_data['library']['templates'])){
@@ -270,11 +274,15 @@ class Source_Custom extends Source_Base {
 	 
 	public static function get_template_content( $template_id ) {
 		global $wp_filesystem;
+		if ( ! function_exists( 'WP_Filesystem' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+		}
+		WP_Filesystem();
 		$template_content_url = get_template_directory().'/elements/template-library/'.$template_id.'.json';
-		 
-		if( !file_exists($template_content_url) ) return [];	
 
-		$template_content = json_decode( $wp_filesystem->get_contents( $template_content_url ), true);    
+		if ( ! file_exists( $template_content_url ) || is_null( $wp_filesystem ) ) return [];
+
+		$template_content = json_decode( $wp_filesystem->get_contents( $template_content_url ), true);
  
 
 		if ( empty( $template_content['content'] ) ) {

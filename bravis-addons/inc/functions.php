@@ -109,7 +109,11 @@ if(!function_exists('pxl_get_grid_term_options')){
 if(!function_exists('pxl_get_posts_of_grid')) {
     function pxl_get_posts_of_grid($post_type = 'post', $atts = array(), $taxonomy = array(), $args_extra = array())
     {
-        extract($atts);
+        $post_ids = isset( $atts['post_ids'] ) ? $atts['post_ids'] : '';
+        $limit    = isset( $atts['limit'] )    ? $atts['limit']    : 6;
+        $order    = isset( $atts['order'] )    ? $atts['order']    : 'DESC';
+        $orderby  = isset( $atts['orderby'] )  ? $atts['orderby']  : 'date';
+        $source   = isset( $atts['source'] )   ? $atts['source']   : array();
         if (!empty($post_ids)) {
             $args = array(
                 'post_type' => $post_type,
@@ -247,6 +251,7 @@ if(!function_exists('pxl_get_all_page')){
                 'post_type'         => 'page',
             )
         );
+        $options = array();
         if( !empty( $all_posts ) && !is_wp_error( $all_posts ) ) {
             foreach ( $all_posts as $post ) {
                 $options[ $post->ID ] = strlen( $post->post_title ) > 20 ? substr( $post->post_title, 0, 20 ).'...' : $post->post_title;
@@ -277,7 +282,11 @@ if ( ! function_exists( 'pxl_resize' ) ) {
             // this is not an attachment, let's use the image url
         } elseif ( $img_url ) {
             $file_path = wp_parse_url( $img_url );
-            $actual_file_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
+            $raw_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
+            $actual_file_path = realpath( $raw_path );
+            if ( $actual_file_path === false || strpos( $actual_file_path, realpath( ABSPATH ) ) !== 0 ) {
+                return false;
+            }
             $orig_size = getimagesize( $actual_file_path );
             $image_src[0] = $img_url;
             $image_src[1] = $orig_size[0];
@@ -582,11 +591,11 @@ if(!function_exists('pxl_share_this_all')){
 
 add_action( 'add_meta_boxes_comment', 'pxl_comment_add_meta_box' );
 function pxl_comment_add_meta_box() {
-    add_meta_box( 'comment', __( 'Comment Metadata - Extend Comment' ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
+    add_meta_box( 'comment', esc_html__( 'Comment Metadata - Extend Comment', PXL_TEXT_DOMAIN ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
 }
 
 function pxl_comment_meta_box($comment){
-    apply_filters( 'pxl_comment_extra_control', $comment );
+    echo apply_filters( 'pxl_comment_extra_control', $comment );
 }
 
 /*add_action( 'restrict_manage_posts', 'pxl_admin_posts_filter_restrict_manage_posts',10,2 );

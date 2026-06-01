@@ -202,18 +202,32 @@ class PXL_Mega_Menu_Edit_Walker extends Walker_Nav_Menu_Edit
                     $value['fetchJson'] = str_replace($theme_url,get_template_directory(),$value['fetchJson']);
                  
                 $fetchJson = $value['fetchJson'] ;
-                $file_content = '';   
-                /*$opts = array(
-                    'ssl'=>array(
-                        'verify_peer'=>false,
-                        'verify_peer_name'=>false,
-                    )
-                );
-                $context = stream_context_create($opts);*/
-                
-                if(!empty($fetchJson) ){
-                    $file_content = json_decode( $wp_filesystem->get_contents( $fetchJson ), true); 
-                    //$file_content = json_decode( @file_get_contents($fetchJson, false, $context), true);
+                $file_content = '';
+
+                $allowed_base_paths = [
+                    realpath( ELEMENTOR_ASSETS_PATH ),
+                    realpath( PXL_PATH ),
+                    realpath( get_template_directory() ),
+                ];
+                $real_fetch = realpath( $fetchJson );
+                $path_allowed = false;
+                if ( $real_fetch !== false ) {
+                    foreach ( $allowed_base_paths as $base ) {
+                        if ( $base !== false && strpos( $real_fetch, $base ) === 0 ) {
+                            $path_allowed = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ( ! empty( $fetchJson ) && $path_allowed ) {
+                    if ( ! function_exists( 'WP_Filesystem' ) ) {
+                        require_once ABSPATH . 'wp-admin/includes/file.php';
+                    }
+                    WP_Filesystem();
+                    if ( ! is_null( $wp_filesystem ) ) {
+                        $file_content = json_decode( $wp_filesystem->get_contents( $fetchJson ), true );
+                    }
                 }
                  
                 if(empty($file_content)) continue;
