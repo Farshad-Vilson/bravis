@@ -1,0 +1,31 @@
+/* RTL overrides for metabox.css */
+
+.ef-postbox .redux-container-no-sections .redux-main {
+    margin-left: 0;
+    margin-right: inherit;
+    border-left: none;
+    border-right: none;
+}
+
+.redux-container-context-side .redux-main {
+    margin-left: 0;
+    margin-right: 0;
+    border-left: none;
+    border-right: none;
+}
+
+.redux-container-context-side .redux-group-tab > h2,
+#poststuff .redux-container-context-side h2.redux-section-title {
+    border-right: none;
+    border-left: none;
+}
+
+.redux-container-context-side .redux-section-desc {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.redux-container-context-side .form-table th,
+.redux-container-context-side .form-table td {
+    text-align: right;
+}

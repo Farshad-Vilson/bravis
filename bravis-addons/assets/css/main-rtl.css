@@ -1,0 +1,6 @@
+/* RTL overrides for main.css */
+
+.elementor-widget-inner {
+    margin-right: auto;
+    margin-left: auto;
+}

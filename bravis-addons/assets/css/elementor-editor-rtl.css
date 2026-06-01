@@ -1,0 +1,5 @@
+/* RTL overrides for elementor-editor.css */
+
+.elementor-panel .elementor-tab-control-pxltheme_core a {
+    direction: rtl;
+}

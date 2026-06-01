@@ -1,0 +1,34 @@
+/* RTL overrides for admin.css */
+
+.pxl-img-select-item {
+    float: right;
+}
+
+.pxl-dashboard-item {
+    float: right;
+}
+
+.pxl-dashboard-ticket {
+    float: right;
+}
+
+.pxl-dashboard-item-inner .dash-deactivate {
+    left: auto;
+    right: 0;
+}
+
+body .wpb_pxl_carousel .vc_controls > .vc_controls-out-tc,
+body .wpb_pxl_bootstrap_tabs .vc_controls > .vc_controls-out-tc,
+body .wpb_pxl_bootstrap_section .vc_controls > .vc_controls-out-tc {
+    left: auto;
+    right: 50%;
+}
+
+.redux-sidebar .redux-sidebar-head {
+    text-align: right;
+}
+
+.redux-sidebar-head .pxl-redux-logo,
+.redux-sidebar-head span {
+    text-align: right;
+}
