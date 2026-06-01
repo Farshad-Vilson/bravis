@@ -1,0 +1,6 @@
+/*
+ * This file is intentionally left empty.
+ * WordPress looks for rtl.css in the theme root when is_rtl() is true,
+ * and automatically enqueues it alongside style.css.
+ * Add any additional RTL-only overrides here.
+ */

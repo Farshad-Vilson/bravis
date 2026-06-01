@@ -1,0 +1,34 @@
+<div class="pxl-marquee pxl-marquee__style-1 <?php echo esc_attr($settings['style']); ?> pxl-marquee__<?php echo esc_attr($settings['direction'].' pxl-marquee__'.(isset($settings['pause_on_hover']) && $settings['pause_on_hover'] ? 'pause-on-hover' : 'off')); ?>">
+    <ul style="animation-duration: <?php echo esc_attr($settings['time_run']) ?>s;">
+        <?php foreach ($settings['item'] as $key => $value):
+            $image = isset($value['image']) ? $value['image'] : '';
+            $link_key = $widget->get_repeater_setting_key( 'link', 'value', $key );
+            if ( ! empty( $value['link']['url'] ) ) {
+                $widget->add_render_attribute( $link_key, 'href', $value['link']['url'] );
+
+                if ( $value['link']['is_external'] ) {
+                    $widget->add_render_attribute( $link_key, 'target', '_blank' );
+                }
+
+                if ( $value['link']['nofollow'] ) {
+                    $widget->add_render_attribute( $link_key, 'rel', 'nofollow' );
+                }
+            }
+            $link_attributes = $widget->get_render_attribute_string( $link_key );
+            ?>
+            <li class="pxl-marquee__item">
+                <?php if(!empty($image['id'])) { 
+                    $img_image = pxl_get_image_by_size( array(
+                        'attach_id'  => $image['id'],
+                        'thumb_size' => 'full',
+                        'class' => 'no-lazyload',
+                    ));
+                    $thumbnail_image = $img_image['thumbnail'];?>
+                    <div class="pxl-marquee__item-image">
+                        <a <?php echo implode( ' ', [ $link_attributes ] ); ?>><?php echo wp_kses_post($thumbnail_image); ?></a>
+                    </div>
+                <?php } ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

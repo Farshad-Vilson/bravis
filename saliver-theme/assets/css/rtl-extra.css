@@ -1,0 +1,265 @@
+/*
+ * RTL Extra Overrides — Saliver Theme
+ * Loaded only when WordPress language is RTL (is_rtl() === true)
+ * Supplements the body.rtl {} rules already compiled into style.css
+ */
+
+/* ======================================================
+   Service Style 2
+   ====================================================== */
+body.rtl .pxl-service-style2 .pxl-item--content {
+    padding-right: 0;
+    padding-left: 26px;
+}
+body.rtl .pxl-service-style2 .pxl-item--btn {
+    margin: 50px 0 0 26px;
+}
+body.rtl .pxl-service-style2 .pxl-item--btn span svg {
+    transform: scaleX(-1);
+}
+
+/* ======================================================
+   Team Layout 1
+   ====================================================== */
+body.rtl .pxl-team-layout1 .pxl-item--holder {
+    left: auto;
+    right: 30px;
+}
+
+/* ======================================================
+   Buttons — SVG Arrow & Video Title
+   ====================================================== */
+body.rtl .pxl-btn-slide-style1 svg {
+    margin-left: 0;
+    margin-right: 9px;
+    transform: scaleX(-1);
+}
+body.rtl .pxl-btn-slide-video-style1 .slider-video-title {
+    margin-left: 0;
+    margin-right: 13px;
+}
+
+/* ======================================================
+   Nice Select — arrow position
+   ====================================================== */
+body.rtl .nice-select {
+    padding-right: 30px;
+    padding-left: 44px;
+}
+body.rtl .nice-select:before {
+    right: auto;
+    left: 10px;
+}
+
+/* ======================================================
+   Select2 — arrow & clear button
+   ====================================================== */
+body.rtl .select2-container--default .select2-selection .select2-selection__arrow {
+    right: auto;
+    left: 20px;
+}
+body.rtl .select2-container--default .select2-selection .select2-selection__clear {
+    right: auto;
+    left: 30px;
+}
+body.rtl form .select2-container--default .select2-selection .select2-selection__rendered {
+    padding-left: 0;
+    padding-right: 22px;
+}
+
+/* ======================================================
+   Form Date Fields
+   ====================================================== */
+body.rtl .pxl-form-date .wpcf7-form-control-wrap:after,
+body.rtl .pxl-form-date .pxl-item-group:after {
+    right: auto;
+    left: 10px;
+}
+
+/* ======================================================
+   Comment — RTL adjustments
+   ====================================================== */
+body.rtl .comment-inner img.avatar {
+    margin-right: 0;
+    margin-left: 18px;
+}
+body.rtl .comment-form-cookies-consent {
+    padding-left: 0;
+    padding-right: 32px;
+}
+body.rtl .comment-form-cookies-consent input,
+body.rtl .comment-form-cookies-consent label::before,
+body.rtl .comment-form-cookies-consent label::after {
+    left: auto;
+    right: 0;
+}
+body.rtl .comment-list li .children {
+    padding-right: 120px;
+    padding-left: 0;
+}
+@media (max-width: 575px) {
+    body.rtl .comment-list li .children {
+        padding-right: 78px;
+    }
+}
+
+/* ======================================================
+   Search — no-results page submit button
+   ====================================================== */
+body.rtl .search-no-results .search-form .searchform-wrap .search-submit {
+    right: auto;
+    left: 0;
+}
+
+/* ======================================================
+   Breadcrumb — separator arrow
+   ====================================================== */
+body.rtl .pxl-breadcrumb li .sep,
+body.rtl .pxl-breadcrumb .breadcrumb-sep {
+    transform: scaleX(-1);
+    display: inline-block;
+}
+
+/* ======================================================
+   Left Sidebar Header — flip to right side in RTL
+   ====================================================== */
+@media (min-width: 1200px) {
+    body.rtl.bd-px-header--left_sidebar:not(.elementor-editor-active) #pxl-header-elementor .px-header--left_sidebar {
+        left: auto;
+        right: 0;
+    }
+    body.rtl.bd-px-header--left_sidebar:not(.elementor-editor-active) #pxl-main,
+    body.rtl.bd-px-header--left_sidebar:not(.elementor-editor-active) #pxl-footer-elementor,
+    body.rtl.bd-px-header--left_sidebar:not(.elementor-editor-active) #pxl-page-title-elementor {
+        padding-left: 0;
+        padding-right: 300px;
+    }
+}
+
+/* ======================================================
+   Anchor Icon Lines — hover animation direction
+   ====================================================== */
+body.rtl .pxl-anchor-divider .pxl-icon-line {
+    left: 0;
+    right: auto;
+}
+body.rtl .pxl-anchor-divider .pxl-icon-line:before,
+body.rtl .pxl-anchor-divider .pxl-icon-line:after {
+    left: 0;
+    right: auto;
+}
+
+/* ======================================================
+   WooCommerce Cart Sidebar — slide from left in RTL
+   ====================================================== */
+body.rtl #pxl-cart-sidebar .pxl-popup--conent {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+}
+body.rtl #pxl-cart-sidebar.active .pxl-popup--conent {
+    transform: translateX(0);
+}
+
+/* ======================================================
+   WooCommerce — product list & checkout
+   ====================================================== */
+body.rtl .woocommerce .woocommerce-ordering select,
+body.rtl .woocommerce-page .woocommerce-ordering select {
+    padding-right: 10px;
+    padding-left: 30px;
+}
+body.rtl .woocommerce form .form-row label {
+    text-align: right;
+}
+body.rtl .woocommerce-checkout .woocommerce-form__input-checkbox + label {
+    padding-left: 0;
+    padding-right: 28px;
+}
+body.rtl .woocommerce-checkout .woocommerce-form__input-checkbox {
+    float: right;
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* ======================================================
+   Portfolio Info Box
+   ====================================================== */
+body.rtl .pxl-project-info1 .pxl-item--inner {
+    text-align: right;
+}
+body.rtl .pxl-project-info1 .pxl-item--inner .pxl-item--icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* ======================================================
+   Icon Box — full-cover link
+   ====================================================== */
+body.rtl .pxl-icon-box .pxl-item--link {
+    left: auto;
+    right: 0;
+    width: 100%;
+}
+
+/* ======================================================
+   Mobile Menu — slide from right in RTL
+   ====================================================== */
+@media (max-width: 1199px) {
+    body.rtl .pxl-header-menu {
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+    }
+    body.rtl .pxl-header-menu.active {
+        transform: translateX(0%);
+    }
+    body.rtl #pxl-header-default #pxl-nav-mobile,
+    body.rtl #pxl-header-elementor #pxl-nav-mobile {
+        right: auto;
+        left: 15px;
+    }
+    body.rtl .pxl-menu-toggle,
+    body.rtl .pxl-menu-close {
+        right: auto;
+        left: 0;
+    }
+    body.rtl .pxl-menu-primary .sub-menu li a,
+    body.rtl .pxl-menu-primary .children li a {
+        padding-left: 0;
+        padding-right: 14px;
+    }
+    body.rtl .pxl-menu-primary .pxl-megamenu .pxl-heading {
+        padding-left: 0;
+        padding-right: 14px;
+    }
+    body.rtl .pxl-mobile-meta-item {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}
+
+/* ======================================================
+   Elementor Icon List — inline separator
+   ====================================================== */
+body.rtl .elementor-icon-list--layout-inline .elementor-icon-list-item:not(:last-child):after {
+    left: auto;
+    right: 0;
+}
+
+/* ======================================================
+   Heading / Tag line decorative element
+   ====================================================== */
+body.rtl .pxl-heading .pxl-item--tagline::before {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* ======================================================
+   Pagination — arrow icon flip
+   ====================================================== */
+body.rtl .pxl-pagination-wrap .page-numbers i,
+body.rtl .pxl-pagination-wrap .page-numbers svg {
+    transform: scaleX(-1);
+    display: inline-block;
+}

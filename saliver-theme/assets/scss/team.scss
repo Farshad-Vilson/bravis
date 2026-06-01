@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+# Team Grid/Carousel
+--------------------------------------------------------------*/
+.pxl-team-layout1 {
+	
+	.pxl-item--image {
+		img{
+			border-radius: 10px;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	.pxl-item--inner {
+		position: relative;
+		margin-bottom: 40px;
+		overflow: hidden;
+		border-radius: 10px;
+		&::before{
+			position: absolute;
+			content: '';
+			border-radius: 386px;
+			background: $primary_color;
+			filter: blur(100px);
+			width: 386px;
+			height: 386px;
+			transform: translateX(-50%) scale(0);
+			bottom: -143px;
+			left: 50%;
+			transition: all .3s;
+		}
+		>a{
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+		&:hover{
+			&::before{
+				transform: translateX(-50%) scale(1);
+			}
+			.pxl-item--holder{
+				opacity: 1;
+				.pxl-item--title,.pxl-item--social{
+					transform: translateY(0px);
+				}
+			}
+		}
+	}
+	.pxl-item--holder{
+		position: absolute;
+		bottom: 30px;
+		left: 30px;
+		opacity: 0;
+		.pxl-item--title{
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 1;
+			margin: 14px 0 0 0;
+			transform: translateY(10px);
+			transition: all .3s ease;
+			
+		}
+		.pxl-item--social{
+			transform: translateY(10px);
+			transition: all .3s;
+			display: flex;
+  			gap: 12px;
+			i{
+				color: $dark_color;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+body.rtl {
+	.pxl-team-layout1 .pxl-item--holder {
+		left: auto;
+		right: 30px;
+	}
+}
