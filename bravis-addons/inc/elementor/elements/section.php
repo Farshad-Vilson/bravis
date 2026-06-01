@@ -59,7 +59,7 @@ class PXL_Element_Section extends Element_Section {
 
         <?php 
             $pxl_section_start_render = apply_filters('pxl_section_start_render','', $settings, $this);
-            if(!empty($pxl_section_start_render)) echo wp_kses_post($pxl_section_start_render);
+            if(!empty($pxl_section_start_render)) echo $pxl_section_start_render;
         ?>
         <?php
         if ( 'video' === $settings['background_background'] ) :
@@ -119,7 +119,7 @@ class PXL_Element_Section extends Element_Section {
 
         ?>
 
-        <?php if(!empty($pxl_before_section_render)) echo wp_kses_post($pxl_before_section_render); ?>
+        <?php if(!empty($pxl_before_section_render)) echo $pxl_before_section_render; ?>
         <div class="elementor-container elementor-column-gap-<?php echo esc_attr( $settings['gap'] ); ?> <?php echo esc_attr(implode(' ', $custom_classes)) ?>">
         <?php  
     }
