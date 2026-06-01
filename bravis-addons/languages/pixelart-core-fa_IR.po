@@ -1,0 +1,330 @@
+# Persian (Farsi) translation for Bravis Addons
+# Copyright (C) 2024 Bravis Themes
+# This file is distributed under the same license as the Bravis Addons plugin.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Bravis Addons 1.4.0\n"
+"Report-Msgid-Bugs-To: https://bravisthemes.com\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Bravis Themes <info@bravisthemes.com>\n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+#: bravis-addons.php
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "\"%1$s\" نیاز دارد \"%2$s\" نصب و فعال باشد."
+
+#: bravis-addons.php
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr "\"%1$s\" نیاز دارد \"%2$s\" نسخه %3$s یا بالاتر باشد."
+
+#: bravis-addons.php
+msgid "%1$s require %2$s installed and activated. Please active %3$s plugin"
+msgstr "%1$s نیاز به %2$s نصب‌شده و فعال دارد. لطفاً افزونه %3$s را فعال کنید."
+
+#: bravis-addons.php
+msgid "Please activate the right theme to use \"%1$s\" plugin."
+msgstr "لطفاً قالب مناسب را برای استفاده از افزونه \"%1$s\" فعال کنید."
+
+#: bravis-addons.php
+msgid "Activate theme"
+msgstr "فعال‌سازی قالب"
+
+#: bravis-addons.php
+msgid "Theme Options"
+msgstr "تنظیمات قالب"
+
+#: bravis-addons.php
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: bravis-addons.php
+msgid "Visit Site"
+msgstr "مشاهده سایت"
+
+#: bravis-addons.php
+msgid "Themes"
+msgstr "قالب‌ها"
+
+#: bravis-addons.php
+msgid "Widgets"
+msgstr "ابزارک‌ها"
+
+#: bravis-addons.php
+msgid "Menus"
+msgstr "منوها"
+
+#: bravis-addons.php
+msgid "Elementor Plugin"
+msgstr "افزونه المنتور"
+
+#: bravis-addons.php
+msgid "PHP"
+msgstr "PHP"
+
+#: bravis-addons.php
+msgid "Redux Framework"
+msgstr "Redux Framework"
+
+#: bravis-addons.php
+msgid "Dismiss this notice."
+msgstr "بستن این پیام."
+
+#: bravis-addons.php
+msgid "Uploading..."
+msgstr "در حال بارگذاری..."
+
+#: inc/admin/auto-update.php
+msgid "Theme Updater"
+msgstr "بروزرسانی قالب"
+
+#: inc/admin/auto-update.php
+msgid "Theme Updater: "
+msgstr "بروزرسانی قالب: "
+
+#: inc/admin/auto-update.php
+msgid "Current version "
+msgstr "نسخه فعلی "
+
+#: inc/admin/auto-update.php
+msgid "Update To Version: "
+msgstr "بروزرسانی به نسخه: "
+
+#: inc/admin/auto-update.php
+msgid "Theme is Up To Date:"
+msgstr "قالب بروز است:"
+
+#: inc/elementor/el-functions.php
+msgid "Font Awesome - Regular"
+msgstr "Font Awesome - معمولی"
+
+#: inc/elementor/el-functions.php
+msgid "Font Awesome - Solid"
+msgstr "Font Awesome - توپر"
+
+#: inc/elementor/el-functions.php
+msgid "Font Awesome - Brands"
+msgstr "Font Awesome - برندها"
+
+#: inc/elementor/el-functions.php
+msgid "Font Awesome - Light"
+msgstr "Font Awesome - سبک"
+
+#: inc/elementor/theme-builder/class-admin.php
+msgid "Header"
+msgstr "سربرگ"
+
+#: inc/elementor/theme-builder/class-admin.php
+msgid "Footer"
+msgstr "پابرگ"
+
+#: inc/elementor/theme-builder/class-admin.php
+msgid "Mega Menu"
+msgstr "مگامنو"
+
+#: inc/elementor/theme-builder/class-admin.php
+msgid "All"
+msgstr "همه"
+
+#: inc/functions.php
+msgid "Back"
+msgstr "قبلی"
+
+#: inc/functions.php
+msgid "Next"
+msgstr "بعدی"
+
+#: inc/functions.php
+msgid "Share this post to"
+msgstr "اشتراک‌گذاری این مطلب در"
+
+#: inc/functions.php
+msgid "Share"
+msgstr "اشتراک‌گذاری"
+
+#: inc/functions.php
+msgid "Comment Metadata - Extend Comment"
+msgstr "متادیتای دیدگاه - افزونه دیدگاه"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "Select Mega Menu"
+msgstr "انتخاب مگامنو"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "Icon"
+msgstr "آیکون"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "No Icons"
+msgstr "بدون آیکون"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "One page"
+msgstr "یک صفحه‌ای"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "One page offset"
+msgstr "آفست یک صفحه‌ای"
+
+#: inc/mega-menu/class-mega-menu-edit.php
+msgid "Select Type"
+msgstr "انتخاب نوع"
+
+#: inc/meta-box/class-post-metabox.php
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: inc/meta-box/class-post-metabox.php
+msgid "error(s)"
+msgstr "خطا(ها)"
+
+#: inc/meta-box/class-post-metabox.php
+msgid "were found! Some data might not be saved."
+msgstr "یافت شد! ممکن است برخی اطلاعات ذخیره نشده باشند."
+
+#: inc/meta-box/class-post-metabox.php
+msgid "warning(s)"
+msgstr "هشدار(ها)"
+
+#: inc/meta-box/class-taxonomy-meta.php
+msgid "Section %1$s for taxonomy %2$s is already exist."
+msgstr "بخش %1$s برای طبقه‌بندی %2$s از قبل موجود است."
+
+#: inc/meta-box/class-taxonomy-meta.php
+msgid "The field with id %1$s for taxonomy %2$s is already registered."
+msgstr "فیلد با شناسه %1$s برای طبقه‌بندی %2$s از قبل ثبت شده است."
+
+#: inc/meta-box/class-post-metabox.php
+msgid "The field with id"
+msgstr "فیلد با شناسه"
+
+#: inc/meta-box/class-post-metabox.php
+msgid "for post type"
+msgstr "برای نوع نوشته"
+
+#: inc/meta-box/class-post-metabox.php
+msgid "is already registered."
+msgstr "از قبل ثبت شده است."
+
+#: inc/meta-box/class-post-metabox.php
+msgid "Section"
+msgstr "بخش"
+
+#: inc/post-type/cpt-register.php
+msgid "Add New"
+msgstr "افزودن جدید"
+
+#: inc/post-type/cpt-register.php
+msgid "Edit"
+msgstr "ویرایش"
+
+#: inc/post-type/cpt-register.php
+msgid "New"
+msgstr "جدید"
+
+#: inc/post-type/cpt-register.php
+msgid "View"
+msgstr "نمایش"
+
+#: inc/post-type/cpt-register.php
+msgid "Search"
+msgstr "جستجو"
+
+#: inc/post-type/cpt-register.php
+msgid "No"
+msgstr "هیچ"
+
+#: inc/post-type/cpt-register.php
+msgid "Found in Trash"
+msgstr "در زباله‌دان یافت شد"
+
+#: inc/post-type/cpt-register.php
+msgid "Found"
+msgstr "یافت شد"
+
+#: inc/post-type/cpt-register.php
+msgid "Parent"
+msgstr "والد"
+
+#: inc/post-type/cpt-register.php
+msgid "Archives"
+msgstr "آرشیو"
+
+#: inc/post-type/cpt-register.php
+msgid "Entry Attributes"
+msgstr "ویژگی‌های نوشته"
+
+#: inc/post-type/cpt-register.php
+msgid "Uploaded to this"
+msgstr "بارگذاری شده در این"
+
+#: inc/post-type/cpt-register.php
+msgid "Filter"
+msgstr "فیلتر"
+
+#: inc/post-type/cpt-register.php
+msgid "list navigation"
+msgstr "ناوبری فهرست"
+
+#: inc/post-type/cpt-register.php
+msgid "list"
+msgstr "فهرست"
+
+#: inc/post-type/cpt-register.php
+msgid "Templates"
+msgstr "قالب‌ها"
+
+#: inc/post-type/cpt-register.php
+msgid "Featured"
+msgstr "ویژه"
+
+#: inc/post-type/cpt-register.php
+msgid "Type"
+msgstr "نوع"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Add Item"
+msgstr "افزودن آیتم"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Content"
+msgstr "محتوا"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Link"
+msgstr "لینک"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "New Type"
+msgstr "نوع جدید"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "None"
+msgstr "هیچ‌کدام"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Text"
+msgstr "متن"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Update"
+msgstr "بروزرسانی"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Url"
+msgstr "آدرس"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Yes"
+msgstr "بله"
+
+#: inc/redux-fields/pxl_iconpicker/inc/field_pxl_iconpicker.php
+msgid "Pxlart Core"
+msgstr "هسته پیکسل‌آرت"

@@ -3,7 +3,7 @@
  * Plugin Name: Bravis Addons
  * Description: Add many widgets, shortcodes and custom post types for your theme.
  * Plugin URI:  http://bravisthemes.com/
- * Version:     1.3.0
+ * Version:     1.4.0
  * Author:      Bravis Themes
  * Author URI:  https://themeforest.net/user/bravis-themes/
  * Update URI:  https://api.bravisthemes.com/
@@ -26,7 +26,7 @@ define('PXL_URL', plugin_dir_url(__FILE__));
 class Pxltheme_Core
 {
 
-    const VERSION = '1.3.0';
+    const VERSION = '1.4.0';
 
     const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
 
