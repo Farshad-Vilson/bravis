@@ -202,8 +202,8 @@ if(!function_exists('pxl_get_posts_of_grid')) {
         $pagination = get_the_posts_pagination(array(
             'screen_reader_text' => '',
             'mid_size' => 2,
-            'prev_text' => is_rtl() ? esc_html__('Next', PXL_TEXT_DOMAIN) : esc_html__('Back', PXL_TEXT_DOMAIN),
-            'next_text' => is_rtl() ? esc_html__('Back', PXL_TEXT_DOMAIN) : esc_html__('Next', PXL_TEXT_DOMAIN),
+            'prev_text' => esc_html__('Back', PXL_TEXT_DOMAIN),
+            'next_text' => esc_html__('Next', PXL_TEXT_DOMAIN),
         ));
         global $paged;
         $paged = $pxl_paged;
@@ -247,7 +247,6 @@ if(!function_exists('pxl_get_all_page')){
                 'post_type'         => 'page',
             )
         );
-        $options = array();
         if( !empty( $all_posts ) && !is_wp_error( $all_posts ) ) {
             foreach ( $all_posts as $post ) {
                 $options[ $post->ID ] = strlen( $post->post_title ) > 20 ? substr( $post->post_title, 0, 20 ).'...' : $post->post_title;
@@ -583,11 +582,11 @@ if(!function_exists('pxl_share_this_all')){
 
 add_action( 'add_meta_boxes_comment', 'pxl_comment_add_meta_box' );
 function pxl_comment_add_meta_box() {
-    add_meta_box( 'comment', __( 'Comment Metadata - Extend Comment', PXL_TEXT_DOMAIN ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
+    add_meta_box( 'comment', __( 'Comment Metadata - Extend Comment' ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
 }
 
 function pxl_comment_meta_box($comment){
-    echo apply_filters( 'pxl_comment_extra_control', $comment );
+    apply_filters( 'pxl_comment_extra_control', $comment );
 }
 
 /*add_action( 'restrict_manage_posts', 'pxl_admin_posts_filter_restrict_manage_posts',10,2 );

@@ -95,15 +95,7 @@ if(!function_exists('pxl_create_class_widget')){
             $replace,
             $file_content
         );
-        $real_dir = realpath( dirname( $file_path ) );
-        $allowed_dir = realpath( PXL_PATH . 'inc/elementor/' );
-        $theme_dir   = realpath( get_template_directory() . '/elements/widgets/' );
-        $dir_allowed = ( $real_dir !== false && $allowed_dir !== false && strpos( $real_dir, $allowed_dir ) === 0 )
-                    || ( $real_dir !== false && $theme_dir !== false && strpos( $real_dir, $theme_dir ) === 0 );
-        if ( ! $dir_allowed ) {
-            return false;
-        }
-        if ( file_put_contents( $file_path, $file_content ) === false ) {
+        if (file_put_contents($file_path, $file_content) === false) {
             return false;
         }
         return true;
@@ -124,9 +116,8 @@ if(!function_exists('pxl_get_template')){
         $template_name = $widget->get_name();  
         $layout = (isset($settings['layout']) && !empty($settings['layout'])) ? $settings['layout'] : '1'; 
   
-        if ( ! empty( $settings['post_type'] ) && isset( $settings[ 'layout_' . $settings['post_type'] ] ) ) {
-            $layout = $settings[ 'layout_' . $settings['post_type'] ];
-        }
+        if(!empty($settings['post_type']))
+            $layout = $settings['layout_'.$settings['post_type']]; 
  
         $located = pxl_get_locate_template($template_name, $layout, $template_path, $default_path);
 

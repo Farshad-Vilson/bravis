@@ -1,6 +1,7 @@
 <?php
 use Elementor\Core\Files\CSS\Post;
 use Elementor\Plugin;
+use Elementor\Post_CSS_File;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 abstract class Pxltheme_Core_Widget_Base extends \Elementor\Widget_Base {
@@ -57,17 +58,15 @@ abstract class Pxltheme_Core_Widget_Base extends \Elementor\Widget_Base {
                 foreach($sections as $section){
                     if(isset($section['controls']) && !empty($section['controls'])){
                         $controls = isset($section['controls'])?$section['controls']:[];
-                        $section_args = [
-                            'label' => $section['label'],
-                            'tab'   => $section['tab'],
-                        ];
-                        if ( ! empty( $section['condition'] ) ) {
-                            $section_args['condition'] = $section['condition'];
-                        }
-                        if ( ! empty( $section['conditions'] ) ) {
-                            $section_args['conditions'] = $section['conditions'];
-                        }
-                        $this->start_controls_section( $section['name'], $section_args );
+                        $this->start_controls_section(
+                            $section['name'],
+                            [
+                                'label' => $section['label'],
+                                'tab' => $section['tab'],
+                                'condition' => isset($section['condition'])?$section['condition']:'',
+                                'conditions' => isset($section['conditions'])?$section['conditions']:'',
+                            ]
+                        );
                         foreach ($controls as $control){
                             $control_type = isset($control['control_type']) ? $control['control_type']:'';
                             if($control_type == 'responsive'){

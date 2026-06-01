@@ -65,11 +65,11 @@ class Pxl_Auto_Updater {
             <div class="pxl-iconbox-contents">
             <?php 
                 if ( $has_update ) {
-                    echo '<h6>'.esc_html__('Theme Updater: ', PXL_TEXT_DOMAIN).'<span>'.esc_html__('Current version ', PXL_TEXT_DOMAIN).'('.esc_html($local_theme->get( 'Version' )).')</span></h6>';
+                    echo '<h6>'.esc_html__('Theme Updater: ', PXL_TEXT_DOMAIN).'<span>'.esc_html__('Current version ', PXL_TEXT_DOMAIN).'('.$local_theme->get( 'Version' ).')</span></h6>';
                     echo '<form method="post" class="pxl-form-auto-update" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
                     wp_nonce_field( 'pxl_update_theme_action', 'pxl_uptheme_nonce' );
                     echo '<input type="hidden" name="action" value="pxl_update_theme">';
-                    echo '<p><button class="btn button" name="submit" type="submit">'.esc_html__('Update To Version: ', PXL_TEXT_DOMAIN).esc_html($metadata['version']).'</button></p>';
+                    echo '<p><button class="btn button" name="submit" type="submit">'.esc_html__('Update To Version: ', PXL_TEXT_DOMAIN).$metadata['version'].'</button></p>';
                     echo '</form>';
                 } else {
                     echo '<h6>'.esc_html__('Theme Updater', PXL_TEXT_DOMAIN).'</h6>';

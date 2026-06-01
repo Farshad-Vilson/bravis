@@ -57,9 +57,7 @@ class Pxl_Elementor
 
         add_action('elementor/editor/before_enqueue_scripts', function () {
             wp_enqueue_style('pxl-editor-css', PXL_URL . 'assets/css/elementor-editor.css', array(), '1.0.0');
-            if (is_rtl()) {
-                wp_enqueue_style('pxl-editor-rtl-css', PXL_URL . 'assets/css/elementor-editor-rtl.css', ['pxl-editor-css'], '1.0.0');
-            }
+            
         });
 
         add_action('elementor/frontend/after_enqueue_scripts', function () {

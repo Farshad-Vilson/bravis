@@ -82,7 +82,7 @@ class PXL_Mega_Menu_Walker extends Walker_Nav_Menu
         if (!empty($args->local_scroll) && $depth === 0) {
             $item->classes[] = 'local-scroll';
         }
-        $item->pxl_icon_position = is_rtl() ? 'right' : 'left';
+        $item->pxl_icon_position = 'left';
         if (!empty($item->pxl_icon)) {
             if ('left' === $item->pxl_icon_position) {
                 $args->old_link_before = $args->link_before;
@@ -118,9 +118,8 @@ class PXL_Mega_Menu_Walker extends Walker_Nav_Menu
     {
 
         $post = get_post($id);
-        if (!$post) { return false; }
 //        $content = do_shortcode($post->post_content);
-        if (defined('ELEMENTOR_VERSION') && is_callable('Elementor\Plugin::instance')) {
+        if (defined('ELEMENTOR_VERSION') && is_callable('Elementor\Plugin::instance')) { 
             $content = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $id );
         } else {
             $content = do_shortcode($post->post_content);

@@ -14,24 +14,25 @@ class Theme_Builder_Admin
 		$active_class = 'nav-tab-active';
 
 		if ( ! empty( $_REQUEST['tp_type'] ) ) {
-			$current_type = sanitize_text_field( wp_unslash( $_REQUEST['tp_type'] ) );
+			$current_type = $_REQUEST['tp_type'];
 			$active_class = '';
 		}
+ 
 
 		$all_url = add_query_arg( ['post_type' => 'pxl-template'], admin_url( 'edit.php' ) );
-
+ 
 		$template_types = array(
-            'header'       => esc_html__('Header', PXL_TEXT_DOMAIN),
-            'footer'       => esc_html__('Footer', PXL_TEXT_DOMAIN),
-            'mega-menu'    => esc_html__('Mega Menu', PXL_TEXT_DOMAIN)
+            'header'       => esc_html__('Header', PXL_TEXT_DOMAIN), 
+            'footer'       => esc_html__('Footer', PXL_TEXT_DOMAIN), 
+            'mega-menu'    => esc_html__('Mega Menu', PXL_TEXT_DOMAIN) 
         );
         $template_types = apply_filters('pxl_template_type_support',$template_types);
 		?>
 
         <div id="pxl-theme-builder-wrapp"></div>
 		<div id="pxl-theme-builder-tabs" class="nav-tab-wrapper">
-			<a class="nav-tab <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $all_url ); ?>">
-				<?php echo esc_html__( 'All', PXL_TEXT_DOMAIN ); ?>
+			<a class="nav-tab <?php echo $active_class; ?>" href="<?php echo $all_url; ?>">
+				<?php echo  __( 'All', PXL_TEXT_DOMAIN ); ?>
 			</a>
 			<?php
 			foreach ($template_types as $type => $label) {
@@ -40,7 +41,7 @@ class Theme_Builder_Admin
 					$active_class = 'nav-tab-active';
 				}
 				$type_url = add_query_arg( 'tp_type', $type, $all_url );
-				echo '<a class="nav-tab ' . esc_attr( $active_class ) . '" href="' . esc_url( $type_url ) . '">' . esc_html( $label ) . '</a>';
+				echo '<a class="nav-tab '.$active_class.'" href="'.$type_url.'">'.$label.'</a>';
 			}
 			?>
 		</div>
@@ -57,7 +58,7 @@ class Theme_Builder_Admin
 	    }
 	    if ( $type == 'pxl-template' && is_admin() && $pagenow=='edit.php' && isset($_GET['tp_type']) && $_GET['tp_type'] != '') {
 	        $query->query_vars['meta_key'] = 'template_type';
-	        $query->query_vars['meta_value'] = sanitize_text_field( wp_unslash( $_GET['tp_type'] ) );
+	        $query->query_vars['meta_value'] = $_GET['tp_type'];
 	    }
 	} 
 }
