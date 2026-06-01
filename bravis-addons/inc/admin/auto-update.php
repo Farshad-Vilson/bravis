@@ -19,20 +19,31 @@ class Pxl_Auto_Updater {
     }
 
     public function pxl_update_plugins_api($update, $plugin_data, $plugin_file, $locales){
-        $url = 'https://api.bravisthemes.com/';
+        $url      = 'http://api.bravisthemes.com/';
+        $http_url = $url;
+        $ssl      = wp_http_supports( array( 'ssl' ) );
+        if ( $ssl ) {
+            $url = set_url_scheme( $url, 'https' );
+        } 
         $raw_response = wp_remote_get(
-            add_query_arg( ['action' => 'pxl_get_update_plugins', 'plugin_file' => sanitize_text_field($plugin_file)], $url ),
-            array( 'timeout' => 15, 'sslverify' => true )
+            add_query_arg( ['action' => 'pxl_get_update_plugins', 'plugin_file' => $plugin_file], $url ),
+            array( 'timeout' => 15 )
         );
+        if ( $ssl && is_wp_error( $raw_response ) ) {
+            $raw_response = wp_remote_get(
+                add_query_arg( ['action' => 'pxl_get_update_plugins', 'plugin_file' => $plugin_file], $http_url ),
+                array( 'timeout' => 15 )
+            );
+        }
         
         if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
             return $update;
         }
-        $response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-        if ( $response && is_array( $response ) && isset( $response[$plugin_file]['version'], $response[$plugin_file]['package'] ) ) {
+        $response = json_decode( wp_remote_retrieve_body( $raw_response ), true ); 
+        if ( $response && is_array( $response ) ) {
             $update = [
-                'version' => sanitize_text_field( $response[$plugin_file]['version'] ),
-                'package' => esc_url_raw( $response[$plugin_file]['package'] )
+                'version' => $response[$plugin_file]['version'],
+                'package' => $response[$plugin_file]['package']
             ];
         }
         return $update;
@@ -54,15 +65,15 @@ class Pxl_Auto_Updater {
             <div class="pxl-iconbox-contents">
             <?php 
                 if ( $has_update ) {
-                    echo '<h6>' . esc_html__( 'Theme Updater: ', PXL_TEXT_DOMAIN ) . '<span>' . esc_html__( 'Current version ', PXL_TEXT_DOMAIN ) . '(' . esc_html( $local_theme->get( 'Version' ) ) . ')</span></h6>';
+                    echo '<h6>'.esc_html__('Theme Updater: ', PXL_TEXT_DOMAIN).'<span>'.esc_html__('Current version ', PXL_TEXT_DOMAIN).'('.esc_html($local_theme->get( 'Version' )).')</span></h6>';
                     echo '<form method="post" class="pxl-form-auto-update" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
                     wp_nonce_field( 'pxl_update_theme_action', 'pxl_uptheme_nonce' );
                     echo '<input type="hidden" name="action" value="pxl_update_theme">';
-                    echo '<p><button class="btn button" name="submit" type="submit">' . esc_html__( 'Update To Version: ', PXL_TEXT_DOMAIN ) . esc_html( $metadata['version'] ) . '</button></p>';
+                    echo '<p><button class="btn button" name="submit" type="submit">'.esc_html__('Update To Version: ', PXL_TEXT_DOMAIN).esc_html($metadata['version']).'</button></p>';
                     echo '</form>';
                 } else {
-                    echo '<h6>' . esc_html__( 'Theme Updater', PXL_TEXT_DOMAIN ) . '</h6>';
-                    echo '<p>' . esc_html__( 'Theme is Up To Date:', PXL_TEXT_DOMAIN ) . ' <strong>' . esc_html( $local_theme->get( 'Version' ) ) . '</strong></p>';
+                    echo '<h6>'.esc_html__('Theme Updater', PXL_TEXT_DOMAIN).'</h6>';
+                    echo '<p>'.esc_html__('Theme is Up To Date:', PXL_TEXT_DOMAIN).' <strong>' . esc_html( $local_theme->get( 'Version' ) ) . '</strong></p>';
                 }
             ?>
             </div>
@@ -78,9 +89,9 @@ class Pxl_Auto_Updater {
 
         $updates->response[ $this->theme_slug ] = [
             'theme'       => $this->theme_slug,
-            'new_version' => sanitize_text_field( $metadata['version'] ),
-            'url'         => esc_url_raw( $metadata['download_url'] ),
-            'package'     => esc_url_raw( $metadata['download_url'] )
+            'new_version' => $metadata['version'],
+            'url'         => $metadata['download_url'],
+            'package'     => $metadata['download_url']
         ];
 
         set_site_transient( 'update_themes', $updates );

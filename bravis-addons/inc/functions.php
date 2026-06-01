@@ -109,11 +109,7 @@ if(!function_exists('pxl_get_grid_term_options')){
 if(!function_exists('pxl_get_posts_of_grid')) {
     function pxl_get_posts_of_grid($post_type = 'post', $atts = array(), $taxonomy = array(), $args_extra = array())
     {
-        $post_ids = isset( $atts['post_ids'] ) ? $atts['post_ids'] : '';
-        $limit    = isset( $atts['limit'] )    ? $atts['limit']    : 6;
-        $order    = isset( $atts['order'] )    ? $atts['order']    : 'DESC';
-        $orderby  = isset( $atts['orderby'] )  ? $atts['orderby']  : 'date';
-        $source   = isset( $atts['source'] )   ? $atts['source']   : array();
+        extract($atts);
         if (!empty($post_ids)) {
             $args = array(
                 'post_type' => $post_type,
@@ -282,11 +278,7 @@ if ( ! function_exists( 'pxl_resize' ) ) {
             // this is not an attachment, let's use the image url
         } elseif ( $img_url ) {
             $file_path = wp_parse_url( $img_url );
-            $raw_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
-            $actual_file_path = realpath( $raw_path );
-            if ( $actual_file_path === false || strpos( $actual_file_path, realpath( ABSPATH ) ) !== 0 ) {
-                return false;
-            }
+            $actual_file_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
             $orig_size = getimagesize( $actual_file_path );
             $image_src[0] = $img_url;
             $image_src[1] = $orig_size[0];
@@ -591,7 +583,7 @@ if(!function_exists('pxl_share_this_all')){
 
 add_action( 'add_meta_boxes_comment', 'pxl_comment_add_meta_box' );
 function pxl_comment_add_meta_box() {
-    add_meta_box( 'comment', esc_html__( 'Comment Metadata - Extend Comment', PXL_TEXT_DOMAIN ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
+    add_meta_box( 'comment', __( 'Comment Metadata - Extend Comment', PXL_TEXT_DOMAIN ), 'pxl_comment_meta_box', 'comment', 'normal', 'high' );
 }
 
 function pxl_comment_meta_box($comment){

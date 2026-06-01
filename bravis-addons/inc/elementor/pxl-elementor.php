@@ -60,16 +60,26 @@ class Pxl_Elementor
             wp_style_add_data('pxl-editor-css', 'rtl', 'replace');
         });
 
-        $enqueue_fa_pro = function () {
-            if ( apply_filters( 'pxl_support_awesome_pro', true ) ) {
-                wp_enqueue_style( 'font-awesome-pro', PXL_URL . 'assets/libs/font-awesome-pro/css/all.min.css', [], '5.15.4-pro' );
-            }
-        };
-        add_action( 'elementor/frontend/after_enqueue_scripts', $enqueue_fa_pro );
-        add_action( 'elementor/editor/after_enqueue_scripts', $enqueue_fa_pro );
+        add_action('elementor/frontend/after_enqueue_scripts', function () {
+            $awesome_pro_support = apply_filters('pxl_support_awesome_pro', true);
+            if ($awesome_pro_support)
+                wp_enqueue_style('font-awesome-pro', PXL_URL . 'assets/libs/font-awesome-pro/css/all.min.css', [], '5.15.4-pro');
+            
+        });
+
+        add_action('elementor/editor/after_enqueue_scripts', function () {
+            $awesome_pro_support = apply_filters('pxl_support_awesome_pro', true);
+            if ($awesome_pro_support)
+                wp_enqueue_style('font-awesome-pro', PXL_URL . 'assets/libs/font-awesome-pro/css/all.min.css', [], '5.15.4-pro');
+           
+        });
 
         add_action('elementor/editor/v2/scripts/enqueue/after', function () {
             wp_enqueue_script('pxl-core-base', PXL_URL . 'assets/js/base.js', [ 'jquery' ], '1.0.0', true);
+        });
+        
+        add_action('elementor/editor/after_enqueue_styles', function () {
+             
         });
         
         add_action( 'elementor/elements/elements_registered', [ $this, 'elements_registered' ] );
@@ -291,13 +301,12 @@ class Pxl_Elementor
         require_once(PXL_PATH . 'inc/elementor/widgets/abstract-class-widget-base.php');
 
         // Scan element (need add to bottom of this file)
-        $folder = apply_filters('pxl-register-widgets-folder', get_template_directory() . '/elements/widgets/');
-        if (!is_dir($folder)) return;
+        $folder = apply_filters( 'pxl-register-widgets-folder', get_template_directory() . '/elements/widgets/' );
         $files = scandir($folder);
-        if (!$files) return;
-
+         
         foreach ($files as $file) {
-            if (substr($file, -4) === '.php') {
+            $pos = strrpos($file, ".php");
+            if ($pos !== false) {
                 require_once $folder . $file;
             }
         }
@@ -311,24 +320,24 @@ class Pxl_Elementor
         $controls_manager = Plugin::$instance->controls_manager;
         require_once(__DIR__ . '/pxl-controls/class-control-layout.php');
    
-        $controls_manager->register( new Pxltheme_Core_Layout_Control() );
+        $controls_manager->register_control(null, new Pxltheme_Core_Layout_Control());
 
         $is_sp_control_icons = apply_filters( 'pxl_support_e_control_icons', true );
-        if ( $is_sp_control_icons ) {
-            require_once( __DIR__ . '/pxl-controls/class-control-icons.php' );
-            $controls_manager->register( new Pxltheme_Core_Icons_Control() );
+        if( $is_sp_control_icons){
+            require_once(__DIR__ . '/pxl-controls/class-control-icons.php');
+            $controls_manager->register_control(null, new Pxltheme_Core_Icons_Control());
         }
 
         $is_sp_control_list = apply_filters( 'pxl_support_e_control_list', true );
-        if ( $is_sp_control_list ) {
-            require_once( __DIR__ . '/pxl-controls/class-control-list.php' );
-            $controls_manager->register( new Pxltheme_Core_List_Control() );
+        if( $is_sp_control_list){
+            require_once(__DIR__ . '/pxl-controls/class-control-list.php');
+            $controls_manager->register_control(null, new Pxltheme_Core_List_Control());
         }
 
         $is_sp_control_link = apply_filters( 'pxl_support_e_control_link', true );
-        if ( $is_sp_control_link ) {
-            require_once( __DIR__ . '/pxl-controls/class-control-links.php' );
-            $controls_manager->register( new Pxltheme_Core_Links_Control() );
+        if( $is_sp_control_link){
+            require_once(__DIR__ . '/pxl-controls/class-control-links.php');
+            $controls_manager->register_control(null, new Pxltheme_Core_Links_Control());
         }
 
         // Add Tab
@@ -336,12 +345,23 @@ class Pxl_Elementor
     }
 
     public function pxl_elementor_init(){
-        if ( ! is_admin() ) return;
-
-        $e_font_icon_svg_opt    = get_option('elementor_experiment-e_font_icon_svg', 'default');
-        $e_font_icon_svg_filter = apply_filters('pxl-e-font-icon-svg-force-inactive', true);
-        if ($e_font_icon_svg_filter && $e_font_icon_svg_opt !== 'inactive') {
-            update_option('elementor_experiment-e_font_icon_svg', 'inactive', 'yes');
+        if( is_admin() ){
+            $e_font_icon_svg_opt = get_option( 'elementor_experiment-e_font_icon_svg', 'default' );
+            $e_font_icon_svg_filter = apply_filters( 'pxl-e-font-icon-svg-force-inactive', true);
+            if( $e_font_icon_svg_filter && $e_font_icon_svg_opt !== 'inactive'){
+                update_option( 'elementor_experiment-e_font_icon_svg', 'inactive', 'yes' );
+            }
+            
+            /*$feature_container_opt = get_option( 'elementor_experiment-container', '' );
+            if( $feature_container_opt == ''){
+                update_option( 'elementor_experiment-container', 'inactive', 'yes' );
+            }*/
+            
+            /*$feature_container_opt = get_option( 'elementor_experiment-container', 'default' );
+            $feature_container_filter = apply_filters( 'pxl-feature-container-force-inactive', true);
+            if( $feature_container_filter && $feature_container_opt !== 'inactive'){
+                update_option( 'elementor_experiment-container', 'inactive', 'yes' );
+            }*/
         }
     }
 

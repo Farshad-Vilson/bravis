@@ -15,24 +15,6 @@ class PXL_Mega_Menu_Walker extends Walker_Nav_Menu
 {
     private $item;
 
-    public function __construct() {
-        add_filter( 'nav_menu_link_attributes', array( $this, 'pxl_link_attributes' ), 10, 2 );
-    }
-
-    public function pxl_link_attributes( $atts, $item ) {
-        if ( isset( $item->pxl_onepage ) && $item->pxl_onepage === 'is-one-page' ) {
-            if ( ! isset( $atts['class'] ) || empty( $atts['class'] ) ) {
-                $atts['class'] = 'is-one-page';
-            } elseif ( strpos( $atts['class'], 'is-one-page' ) === false ) {
-                $atts['class'] = trim( $atts['class'] . ' is-one-page' );
-            }
-        }
-        if ( isset( $item->pxl_onepage_offset ) ) {
-            $atts['data-onepage-offset'] = $item->pxl_onepage_offset;
-        }
-        return $atts;
-    }
-
     /**
      * Starts the list before the elements are added.
      *
@@ -77,6 +59,21 @@ class PXL_Mega_Menu_Walker extends Walker_Nav_Menu
             }
         }
 
+        add_filter('nav_menu_link_attributes', function ($atts, $item) {
+            if (isset($item->pxl_onepage) && $item->pxl_onepage === 'is-one-page') {
+                if (!isset($atts['class']) || empty($atts['class'])) {
+                    $atts['class'] = 'is-one-page';
+                } elseif (strpos($atts['class'], 'is-one-page') === false) {
+                    $atts['class'] = trim($atts['class'] . ' is-one-page');
+                }
+            }
+
+            if (isset($item->pxl_onepage_offset)) {
+                $atts['data-onepage-offset'] = $item->pxl_onepage_offset;
+            }
+
+            return $atts;
+        }, 10, 2);
         if (!empty($item->pxl_megaprofile) && $megamenu) {
             $item->classes[] = 'pxl-megamenu';
             $item->classes[] = 'menu-item-has-children';
@@ -119,10 +116,10 @@ class PXL_Mega_Menu_Walker extends Walker_Nav_Menu
 
     public function get_megamenu($id)
     {
+
         $post = get_post($id);
-        if ( ! $post ) {
-            return false;
-        }
+        if (!$post) { return false; }
+//        $content = do_shortcode($post->post_content);
         if (defined('ELEMENTOR_VERSION') && is_callable('Elementor\Plugin::instance')) {
             $content = \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $id );
         } else {

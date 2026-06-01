@@ -43,8 +43,8 @@ class PXL_CPT_Register
         add_action('manage_pxl-template_posts_custom_column', function($column_key, $post_id) {
             if ($column_key == 'template_type') {
                 $type = get_post_meta($post_id, 'template_type', true);
-                $type_dp = ucfirst( str_replace( '-', ' ', $type ) );
-                echo '<span>' . esc_html( $type_dp ) . '</span>';
+                $type_dp = ucfirst(str_replace('-', ' ', $type));
+                echo '<span>' . esc_html($type_dp) . '</span>';
             }
         }, 10, 2);
          
@@ -181,14 +181,13 @@ class PXL_CPT_Register
         if ($colum_name === "post_featured") {
             $pt = get_post_type($post_id);
             if ($pt !== false) {
-                $href = admin_url("edit.php?post_type=" . $pt);
+                $nonce = wp_create_nonce('pxl_featured_' . $post_id);
+                $href = esc_url(add_query_arg(array('post_type' => $pt, 'pxl_post_id' => $post_id, '_wpnonce' => $nonce), admin_url('edit.php')));
                 $meta_featured = get_post_meta($post_id, 'pxl_post_featured', true);
-                $nonce = wp_create_nonce( 'pxl_toggle_featured_' . $post_id );
-                $toggle_url = esc_url( add_query_arg( ['pxl_post_id' => $post_id, '_pxl_nonce' => $nonce], $href ) );
                 if ($meta_featured === "featured") {
-                    echo '<a href="' . $toggle_url . '"><span class="fs-show-featured dashicons dashicons-star-filled"></span></a>';
+                    echo '<a href="' . $href . '"><span class="fs-show-featured dashicons dashicons-star-filled"></span></a>';
                 } else {
-                    echo '<a href="' . $toggle_url . '"><span class="fs-show-featured dashicons dashicons-star-empty"></span></a>';
+                    echo '<a href="' . $href . '"><span class="fs-show-featured dashicons dashicons-star-empty"></span></a>';
                 }
             }
         }
@@ -196,24 +195,28 @@ class PXL_CPT_Register
 
     public function pxl_featured_handlers()
     {
-        if ( ! is_admin() ) return;
-        if ( ! current_user_can( 'edit_posts' ) ) return;
-        if ( empty( $_REQUEST['pxl_post_id'] ) ) return;
-
-        $pid = absint( $_REQUEST['pxl_post_id'] );
-        if ( ! $pid || get_post( $pid ) === null ) return;
-
-        if ( ! isset( $_REQUEST['_pxl_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_REQUEST['_pxl_nonce'] ) ), 'pxl_toggle_featured_' . $pid ) ) {
+        if (!is_admin() || !current_user_can('edit_posts')) {
             return;
         }
-
-        $featured_meta = get_post_meta( $pid, 'pxl_post_featured', true );
-        update_post_meta( $pid, 'pxl_post_featured', $featured_meta === 'featured' ? '' : 'featured' );
-
-        $pt = get_post_type( $pid );
-        if ( $pt !== false ) {
-            wp_safe_redirect( admin_url( 'edit.php?post_type=' . rawurlencode( $pt ) ) );
-            exit;
+        if (!empty($_REQUEST['pxl_post_id'])) {
+            $pid = absint($_REQUEST['pxl_post_id']);
+            if (!$pid || get_post($pid) === null) {
+                return;
+            }
+            if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])), 'pxl_featured_' . $pid)) {
+                return;
+            }
+            $featured_meta = get_post_meta($pid, 'pxl_post_featured', true);
+            if ($featured_meta === "featured") {
+                update_post_meta($pid, 'pxl_post_featured', '');
+            } else {
+                update_post_meta($pid, 'pxl_post_featured', 'featured');
+            }
+            $pt = get_post_type($pid);
+            if ($pt !== false) {
+                wp_safe_redirect(admin_url("edit.php?post_type=" . $pt));
+                exit;
+            }
         }
     }
  

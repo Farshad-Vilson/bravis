@@ -80,25 +80,27 @@ class PXL_MegaMenu_Register
     // Custom Fields - Save
     function update_nav_menu_item($menu_id, $menu_item_db_id, $menu_item_data)
     {
-        if ( isset( $_REQUEST['menu-item-pxl-megaprofile'][ $menu_item_db_id ] ) ) {
-            update_post_meta( $menu_item_db_id, '_menu_item_pxl_megaprofile', absint( $_REQUEST['menu-item-pxl-megaprofile'][ $menu_item_db_id ] ) );
+        if (isset($_REQUEST['menu-item-pxl-megaprofile'][$menu_item_db_id])) {
+            update_post_meta($menu_item_db_id, '_menu_item_pxl_megaprofile', absint($_REQUEST['menu-item-pxl-megaprofile'][$menu_item_db_id]));
         }
-        if ( isset( $_REQUEST['menu-item-pxl-icon'][ $menu_item_db_id ] ) ) {
-            update_post_meta( $menu_item_db_id, '_menu_item_pxl_icon', sanitize_text_field( wp_unslash( $_REQUEST['menu-item-pxl-icon'][ $menu_item_db_id ] ) ) );
+        if (isset($_REQUEST['menu-item-pxl-icon'][$menu_item_db_id])) {
+            update_post_meta($menu_item_db_id, '_menu_item_pxl_icon', sanitize_text_field(wp_unslash($_REQUEST['menu-item-pxl-icon'][$menu_item_db_id])));
         }
-        if ( isset( $_REQUEST['menu-item-pxl-onepage'][ $menu_item_db_id ] ) ) {
-            $onepage_value = sanitize_key( wp_unslash( $_REQUEST['menu-item-pxl-onepage'][ $menu_item_db_id ] ) );
-            if ( in_array( $onepage_value, ['is-one-page', 'no-one-page'], true ) ) {
-                update_post_meta( $menu_item_db_id, '_menu_item_pxl_onepage', $onepage_value );
+
+        if (isset($_REQUEST['menu-item-pxl-onepage'][$menu_item_db_id])) {
+            $onepage_val = sanitize_text_field(wp_unslash($_REQUEST['menu-item-pxl-onepage'][$menu_item_db_id]));
+            if (in_array($onepage_val, array('is-one-page', ''), true)) {
+                update_post_meta($menu_item_db_id, '_menu_item_pxl_onepage', $onepage_val);
             }
         }
-        if ( isset( $_REQUEST['menu-item-pxl-onepage-offset'][ $menu_item_db_id ] ) ) {
-            update_post_meta( $menu_item_db_id, '_menu_item_pxl_onepage_offset', absint( $_REQUEST['menu-item-pxl-onepage-offset'][ $menu_item_db_id ] ) );
+
+        if (isset($_REQUEST['menu-item-pxl-onepage-offset'][$menu_item_db_id])) {
+            update_post_meta($menu_item_db_id, '_menu_item_pxl_onepage_offset', sanitize_text_field(wp_unslash($_REQUEST['menu-item-pxl-onepage-offset'][$menu_item_db_id])));
         }
-        foreach ( $this->menu_meta_extra as $key => $fields ) {
-            $safe_key = sanitize_key( $key );
-            if ( isset( $_REQUEST[ 'menu-item-' . $safe_key ][ $menu_item_db_id ] ) ) {
-                update_post_meta( $menu_item_db_id, '_menu_item_' . $safe_key, sanitize_text_field( wp_unslash( $_REQUEST[ 'menu-item-' . $safe_key ][ $menu_item_db_id ] ) ) );
+
+        foreach ($this->menu_meta_extra as $key => $fields) {
+            if (isset($_REQUEST['menu-item-' . $key][$menu_item_db_id])) {
+                update_post_meta($menu_item_db_id, '_menu_item_' . $key, sanitize_text_field(wp_unslash($_REQUEST['menu-item-' . $key][$menu_item_db_id])));
             }
         }
     }
@@ -121,7 +123,6 @@ class PXL_MegaMenu_Register
         wp_enqueue_style('jquery.fonticonpicker.min.css', PXL_URL . 'assets/libs/iconpicker/css/jquery.fonticonpicker.min.css', array(), '1.0', 'all');
         wp_enqueue_style('jquery.fonticonpicker.grey.min.css', PXL_URL . 'assets/libs/iconpicker/themes/grey-theme/jquery.fonticonpicker.grey.min.css', array(), '1.0', 'all');
         wp_enqueue_script('jquery.fonticonpicker.js', PXL_URL . 'assets/libs/iconpicker/jquery.fonticonpicker.min.js', array('jquery'));
-        wp_add_inline_script('jquery.fonticonpicker.js', "jQuery(document).ready(function($){ $('.pxl-icon-picker').fontIconPicker(); });");
        
         if($awesome_pro_support)
             wp_enqueue_style( 'font-awesome-pro', PXL_URL . 'assets/libs/font-awesome-pro/css/all.min.css', [], '5.15.4-pro' );
