@@ -1,59 +1,41 @@
 /*
- * Harfeh Aval Theme — WordPress Admin RTL Overrides
- * Loaded in wp-admin when is_rtl() is true
+ * Harfeh Aval Theme — WordPress Admin RTL
+ *
+ * WordPress core loads wp-admin-rtl.css automatically when is_rtl() = true.
+ * Redux Framework loads its own RTL CSS.
+ * Elements inside <html dir="rtl"> inherit direction:rtl automatically.
+ *
+ * Only fix theme-specific elements with hardcoded LTR absolute/fixed positions.
  */
 
-/* Theme import/setup wizard panel */
-.pxl-wizard-wrap,
-.pxl-admin-page,
-.pxl-import-page {
-    direction: rtl;
-    text-align: right;
+/* ---------------------------------------------------------------
+   Theme Setup Wizard — step indicator arrow (uses left: absolute)
+   --------------------------------------------------------------- */
+.pxl-wizard-wrap .pxl-wizard-steps li::after {
+    right: auto;
+    left: -20px;
 }
 
-/* Redux Framework theme options */
-.redux-container,
-.redux-form-wrapper {
-    direction: rtl;
+/* ---------------------------------------------------------------
+   Theme Import page — progress bar label alignment
+   --------------------------------------------------------------- */
+.pxl-import-page .pxl-import-item .pxl-import-status {
+    right: auto;
+    left: 20px;
 }
-.redux-container .redux-sidebar {
+
+/* ---------------------------------------------------------------
+   Admin notices from theme — icon position
+   --------------------------------------------------------------- */
+.notice.pxl-admin-notice .pxl-notice-icon {
     float: right;
     margin-right: 0;
+    margin-left: 12px;
 }
-.redux-container #redux-footer {
+
+/* ---------------------------------------------------------------
+   TGMPA plugin installer — action buttons alignment
+   --------------------------------------------------------------- */
+.tgmpa-notice-container .button-group {
     text-align: right;
-}
-
-/* Post meta boxes */
-.pxl-postbox {
-    direction: rtl;
-}
-.pxl-postbox label {
-    text-align: right;
-    display: block;
-}
-
-/* Admin notices */
-.pxl-notice,
-.notice.pxl-admin-notice {
-    direction: rtl;
-    text-align: right;
-}
-
-/* Plugin install page */
-.tgmpa-notice-container {
-    direction: rtl;
-    text-align: right;
-}
-
-/* Layout control radio images */
-.elementor-control-type-layoutcontrol .radio-image-item span {
-    right: auto;
-    left: 0;
-    border-radius: 0 0 20px 0;
-}
-
-/* Page title layout select */
-.pxl-select-page-title {
-    direction: rtl;
 }
