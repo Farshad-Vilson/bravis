@@ -1,0 +1,717 @@
+# Translation of Harfeh Aval (Saliver Theme) in Persian (Iran)
+# Copyright (C) 2025 Farshad Motamedipour
+# This file is distributed under the same license as the Harfeh Aval package.
+# Farshad Motamedipour, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Harfeh Aval Child 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 00:00+0000\n"
+"PO-Revision-Date: 2025-06-01 00:00+0000\n"
+"Last-Translator: Farshad Motamedipour\n"
+"Language-Team: Persian (Iran) <fa@li.org>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Manual\n"
+
+# --- WooCommerce / Cart ---
+msgid "Cart"
+msgstr "سبد خرید"
+
+msgid "View Cart"
+msgstr "مشاهده سبد خرید"
+
+msgid "Checkout"
+msgstr "تسویه حساب"
+
+msgid "Subtotal"
+msgstr "جمع فرعی"
+
+msgid "Remove this item"
+msgstr "حذف این آیتم"
+
+msgid "Your cart is empty"
+msgstr "سبد خرید شما خالی است"
+
+msgid "Browse Shop"
+msgstr "مشاهده فروشگاه"
+
+msgid "%d item"
+msgstr "%d محصول"
+
+msgid "%d items"
+msgstr "%d محصول"
+
+msgid "Sale"
+msgstr "تخفیف"
+
+msgid "Quantity:"
+msgstr "تعداد:"
+
+msgid "Products displayed per page"
+msgstr "محصولات نمایش داده شده در هر صفحه"
+
+msgid "Products displayed per row"
+msgstr "محصولات نمایش داده شده در هر ردیف"
+
+msgid "Product"
+msgstr "محصول"
+
+msgid "Shop"
+msgstr "فروشگاه"
+
+msgid "Search results"
+msgstr "نتایج جستجو"
+
+msgid "Search Results"
+msgstr "نتایج جستجو"
+
+# --- Navigation / Menus ---
+msgid "Primary Desktop"
+msgstr "منوی اصلی دسکتاپ"
+
+msgid "Primary Mobile"
+msgstr "منوی موبایل"
+
+# --- Sidebars ---
+msgid "Blog Sidebar"
+msgstr "نوار کناری وبلاگ"
+
+msgid "Page Sidebar"
+msgstr "نوار کناری صفحه"
+
+msgid "Shop Sidebar"
+msgstr "نوار کناری فروشگاه"
+
+# --- Blog / Posts ---
+msgid "Read More"
+msgstr "ادامه مطلب"
+
+msgid "Load More"
+msgstr "بارگذاری بیشتر"
+
+msgid "No Post Found"
+msgstr "مطلبی یافت نشد"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Prev"
+msgstr "قبلی"
+
+msgid "next post"
+msgstr "مطلب بعدی"
+
+msgid "prev post"
+msgstr "مطلب قبلی"
+
+msgid "Next Title"
+msgstr "عنوان بعدی"
+
+msgid "Prev Title"
+msgstr "عنوان قبلی"
+
+msgid "Comments"
+msgstr "دیدگاه‌ها"
+
+msgid "1 Comment"
+msgstr "۱ دیدگاه"
+
+msgid "% Comments"
+msgstr "% دیدگاه"
+
+msgid "No Comments"
+msgstr "بدون دیدگاه"
+
+msgid "Reply"
+msgstr "پاسخ"
+
+msgid "add comment"
+msgstr "افزودن دیدگاه"
+
+msgid "Add comment To:"
+msgstr "افزودن دیدگاه برای:"
+
+msgid "Add comment:"
+msgstr "افزودن دیدگاه:"
+
+msgid "Cancel Comment"
+msgstr "لغو دیدگاه"
+
+msgid "Author"
+msgstr "نویسنده"
+
+msgid "by"
+msgstr "توسط"
+
+msgid "Date"
+msgstr "تاریخ"
+
+msgid "Home"
+msgstr "خانه"
+
+msgid "Related Posts"
+msgstr "مطالب مرتبط"
+
+msgid "Recent Posts"
+msgstr "آخرین مطالب"
+
+msgid "Share:"
+msgstr "اشتراک‌گذاری:"
+
+msgid "Tag:"
+msgstr "برچسب:"
+
+msgid "Tags"
+msgstr "برچسب‌ها"
+
+msgid "No tags"
+msgstr "بدون برچسب"
+
+# --- Search ---
+msgid "Default: Search..."
+msgstr "جستجو..."
+
+msgid "Search Form"
+msgstr "فرم جستجو"
+
+# --- General UI ---
+msgid "Load Successfully!"
+msgstr "با موفقیت بارگذاری شد!"
+
+msgid "Looks like here is nothing"
+msgstr "چیزی یافت نشد"
+
+msgid "404 Error"
+msgstr "خطای ۴۰۴"
+
+msgid "go back home"
+msgstr "بازگشت به خانه"
+
+msgid "Not Found"
+msgstr "یافت نشد"
+
+msgid "Post password required."
+msgstr "رمز عبور پست الزامی است."
+
+# --- Contact Form ---
+msgid "Name*"
+msgstr "نام*"
+
+msgid "Email Address*"
+msgstr "آدرس ایمیل*"
+
+msgid "Comment Here"
+msgstr "دیدگاه خود را بنویسید"
+
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+msgid "Website"
+msgstr "وب‌سایت"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Send"
+msgstr "ارسال"
+
+# --- Social ---
+msgid "Facebook"
+msgstr "فیسبوک"
+
+msgid "Twitter"
+msgstr "توییتر"
+
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+msgid "LinkedIn"
+msgstr "لینکدین"
+
+msgid "Pinterest"
+msgstr "پینترست"
+
+msgid "YouTube"
+msgstr "یوتیوب"
+
+# --- Pagination ---
+msgid "Scroll To Top"
+msgstr "بازگشت به بالا"
+
+msgid "Scroll To Bottom"
+msgstr "رفتن به پایین"
+
+# --- Loading / Status ---
+msgid "Loading"
+msgstr "در حال بارگذاری"
+
+msgid "Ready"
+msgstr "آماده"
+
+msgid "Success"
+msgstr "موفق"
+
+# --- User / Account ---
+msgid "Log in to Your Account"
+msgstr "ورود به حساب کاربری"
+
+msgid "Create your account"
+msgstr "ساخت حساب کاربری"
+
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+msgid "Log Out"
+msgstr "خروج"
+
+msgid "Hi. Welcome back"
+msgstr "سلام، خوش آمدید"
+
+# --- Cookie ---
+msgid "Cookie Policy"
+msgstr "سیاست کوکی"
+
+# --- Countdown ---
+msgid "Days"
+msgstr "روز"
+
+msgid "Days Text"
+msgstr "روز"
+
+msgid "Hours"
+msgstr "ساعت"
+
+msgid "Hours Text"
+msgstr "ساعت"
+
+msgid "Minutes"
+msgstr "دقیقه"
+
+msgid "Minutes Text"
+msgstr "دقیقه"
+
+msgid "Seconds"
+msgstr "ثانیه"
+
+msgid "Seconds Text"
+msgstr "ثانیه"
+
+# --- Theme / Admin strings ---
+msgid "Saliver"
+msgstr "حرف اول"
+
+msgid "Saliver Settings"
+msgstr "تنظیمات حرف اول"
+
+msgid "Saliver General Settings"
+msgstr "تنظیمات عمومی حرف اول"
+
+msgid "Saliver Fonts"
+msgstr "فونت‌های حرف اول"
+
+msgid "Dashboard"
+msgstr "پیشخان"
+
+msgid "Settings"
+msgstr "تنظیمات"
+
+msgid "General"
+msgstr "عمومی"
+
+msgid "Version"
+msgstr "نسخه"
+
+msgid "Theme Options"
+msgstr "گزینه‌های قالب"
+
+msgid "Page Options"
+msgstr "گزینه‌های صفحه"
+
+msgid "Post Options"
+msgstr "گزینه‌های نوشته"
+
+msgid "Portfolio"
+msgstr "نمونه کار"
+
+msgid "Portfolio Name"
+msgstr "نام نمونه کار"
+
+msgid "Service"
+msgstr "خدمات"
+
+msgid "Service Name"
+msgstr "نام خدمات"
+
+msgid "Team"
+msgstr "تیم"
+
+msgid "Testimonial"
+msgstr "نظرات"
+
+msgid "Career"
+msgstr "مشاغل"
+
+msgid "Blog"
+msgstr "وبلاگ"
+
+msgid "Color"
+msgstr "رنگ"
+
+msgid "Layout"
+msgstr "چیدمان"
+
+msgid "Typography"
+msgstr "تایپوگرافی"
+
+msgid "Header"
+msgstr "هدر"
+
+msgid "Footer"
+msgstr "فوتر"
+
+msgid "Mobile"
+msgstr "موبایل"
+
+msgid "Language"
+msgstr "زبان"
+
+msgid "Import"
+msgstr "وارد کردن"
+
+msgid "Import Demos"
+msgstr "وارد کردن دموها"
+
+msgid "Import a Demo"
+msgstr "وارد کردن یک دمو"
+
+msgid "Choose a demo for importing to your website"
+msgstr "یک دمو برای وارد کردن به وب‌سایت خود انتخاب کنید"
+
+msgid "Install Plugins"
+msgstr "نصب افزونه‌ها"
+
+msgid "Install Required Plugins"
+msgstr "نصب افزونه‌های مورد نیاز"
+
+msgid "Plugins"
+msgstr "افزونه‌ها"
+
+msgid "Activate Theme"
+msgstr "فعال‌سازی قالب"
+
+msgid "Welcome"
+msgstr "خوش آمدید"
+
+msgid "Setup Wizard"
+msgstr "راهنمای راه‌اندازی"
+
+msgid "Skip"
+msgstr "رد کردن"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Start"
+msgstr "شروع"
+
+msgid "Install"
+msgstr "نصب"
+
+msgid "Activate"
+msgstr "فعال کردن"
+
+msgid "Update"
+msgstr "به‌روزرسانی"
+
+msgid "Cancel"
+msgstr "لغو"
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "Enable"
+msgstr "فعال"
+
+msgid "Disable"
+msgstr "غیرفعال"
+
+msgid "On"
+msgstr "روشن"
+
+msgid "Off"
+msgstr "خاموش"
+
+msgid "Yes"
+msgstr "بله"
+
+msgid "No"
+msgstr "خیر"
+
+msgid "None"
+msgstr "هیچ"
+
+msgid "Default"
+msgstr "پیش‌فرض"
+
+msgid "Custom"
+msgstr "سفارشی"
+
+msgid "Auto"
+msgstr "خودکار"
+
+msgid "Left"
+msgstr "چپ"
+
+msgid "Right"
+msgstr "راست"
+
+msgid "Center"
+msgstr "مرکز"
+
+msgid "Top"
+msgstr "بالا"
+
+msgid "Bottom"
+msgstr "پایین"
+
+msgid "Normal"
+msgstr "معمولی"
+
+msgid "Hover"
+msgstr "هاور"
+
+msgid "Active"
+msgstr "فعال"
+
+msgid "Hidden"
+msgstr "پنهان"
+
+msgid "Visible"
+msgstr "نمایان"
+
+msgid "Solid"
+msgstr "توپر"
+
+msgid "Dotted"
+msgstr "نقطه‌چین"
+
+msgid "Dashed"
+msgstr "خط‌چین"
+
+msgid "Image"
+msgstr "تصویر"
+
+msgid "Video"
+msgstr "ویدیو"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Content"
+msgstr "محتوا"
+
+msgid "Description"
+msgstr "توضیحات"
+
+msgid "Link"
+msgstr "لینک"
+
+msgid "Icon"
+msgstr "آیکون"
+
+msgid "Size"
+msgstr "اندازه"
+
+msgid "Width"
+msgstr "عرض"
+
+msgid "Height"
+msgstr "ارتفاع"
+
+msgid "Margin"
+msgstr "حاشیه"
+
+msgid "Padding"
+msgstr "فاصله داخلی"
+
+msgid "Border"
+msgstr "کادر"
+
+msgid "Shadow"
+msgstr "سایه"
+
+msgid "Opacity"
+msgstr "شفافیت"
+
+msgid "Animation"
+msgstr "انیمیشن"
+
+msgid "Style"
+msgstr "استایل"
+
+msgid "Type"
+msgstr "نوع"
+
+msgid "Position"
+msgstr "موقعیت"
+
+msgid "Alignment"
+msgstr "تراز"
+
+msgid "Source"
+msgstr "منبع"
+
+msgid "Gallery"
+msgstr "گالری"
+
+msgid "Filter"
+msgstr "فیلتر"
+
+msgid "Search"
+msgstr "جستجو"
+
+msgid "Category"
+msgstr "دسته‌بندی"
+
+msgid "Author"
+msgstr "نویسنده"
+
+msgid "All"
+msgstr "همه"
+
+msgid "Grid"
+msgstr "گرید"
+
+msgid "List"
+msgstr "لیست"
+
+msgid "Carousel"
+msgstr "اسلایدر"
+
+msgid "Slider"
+msgstr "اسلایدر"
+
+msgid "Popup"
+msgstr "پنجره پاپ‌آپ"
+
+msgid "Template"
+msgstr "قالب"
+
+msgid "Templates"
+msgstr "قالب‌ها"
+
+msgid "Select Template"
+msgstr "انتخاب قالب"
+
+msgid "Heading"
+msgstr "عنوان"
+
+msgid "Subheading"
+msgstr "زیرعنوان"
+
+msgid "Button"
+msgstr "دکمه"
+
+msgid "Number"
+msgstr "عدد"
+
+msgid "Counter"
+msgstr "شمارنده"
+
+msgid "Countdown"
+msgstr "شمارش معکوس"
+
+msgid "Progress Bar"
+msgstr "نوار پیشرفت"
+
+msgid "Tabs"
+msgstr "تب‌ها"
+
+msgid "Accordion"
+msgstr "آکاردئون"
+
+msgid "Map"
+msgstr "نقشه"
+
+msgid "Social Icons"
+msgstr "آیکون‌های اجتماعی"
+
+msgid "Post"
+msgstr "نوشته"
+
+msgid "Portfolio"
+msgstr "نمونه کار"
+
+msgid "coming soon"
+msgstr "به زودی"
+
+msgid "yy/mm/dd"
+msgstr "سال/ماه/روز"
+
+msgid "Set date count down (Date format: yy/mm/dd)"
+msgstr "تاریخ شمارش معکوس را تنظیم کنید (فرمت: سال/ماه/روز)"
+
+msgid "Scroll Down"
+msgstr "اسکرول به پایین"
+
+msgid "Back to Top Style"
+msgstr "دکمه بازگشت به بالا"
+
+msgid "Saliver Recent Posts"
+msgstr "آخرین نوشته‌ها"
+
+msgid "Saliver Divider"
+msgstr "جداکننده"
+
+msgid "Site Loader"
+msgstr "لودر سایت"
+
+msgid "Header Display"
+msgstr "نمایش هدر"
+
+msgid "Footer Display"
+msgstr "نمایش فوتر"
+
+msgid "Page Title"
+msgstr "عنوان صفحه"
+
+msgid "Sticky Header Layout"
+msgstr "هدر چسبنده"
+
+msgid "Smooth Scroll"
+msgstr "اسکرول نرم"
+
+msgid "Favicon"
+msgstr "آیکون سایت"
+
+msgid "Logo"
+msgstr "لوگو"
+
+msgid "Logo Height"
+msgstr "ارتفاع لوگو"
+
+msgid "Header Type"
+msgstr "نوع هدر"
+
+msgid "Footer Layout"
+msgstr "چیدمان فوتر"
+
+msgid "Primary Color"
+msgstr "رنگ اصلی"
+
+msgid "Secondary Color"
+msgstr "رنگ ثانوی"
+
+msgid "Dark Color"
+msgstr "رنگ تیره"
+
+msgid "Body Font"
+msgstr "فونت متن"
+
+msgid "Ready to publish your first post?"
+msgstr "آماده انتشار اولین نوشته خود هستید؟"

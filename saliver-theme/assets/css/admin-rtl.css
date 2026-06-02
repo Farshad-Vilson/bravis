@@ -1,0 +1,59 @@
+/*
+ * Harfeh Aval Theme — WordPress Admin RTL Overrides
+ * Loaded in wp-admin when is_rtl() is true
+ */
+
+/* Theme import/setup wizard panel */
+.pxl-wizard-wrap,
+.pxl-admin-page,
+.pxl-import-page {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Redux Framework theme options */
+.redux-container,
+.redux-form-wrapper {
+    direction: rtl;
+}
+.redux-container .redux-sidebar {
+    float: right;
+    margin-right: 0;
+}
+.redux-container #redux-footer {
+    text-align: right;
+}
+
+/* Post meta boxes */
+.pxl-postbox {
+    direction: rtl;
+}
+.pxl-postbox label {
+    text-align: right;
+    display: block;
+}
+
+/* Admin notices */
+.pxl-notice,
+.notice.pxl-admin-notice {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Plugin install page */
+.tgmpa-notice-container {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Layout control radio images */
+.elementor-control-type-layoutcontrol .radio-image-item span {
+    right: auto;
+    left: 0;
+    border-radius: 0 0 20px 0;
+}
+
+/* Page title layout select */
+.pxl-select-page-title {
+    direction: rtl;
+}

@@ -1,0 +1,64 @@
+/*
+ * Harfeh Aval Theme — Elementor Editor RTL Overrides
+ * Loaded in the Elementor editor when is_rtl() is true
+ */
+
+/* Panel direction */
+#elementor-editor-wrapper,
+#elementor-panel,
+.elementor-panel,
+.elementor-panel .elementor-panel-inner {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Panel tabs */
+.elementor-panel .elementor-panel-navigation .elementor-panel-navigation-tab {
+    float: right;
+}
+
+/* Control labels */
+.elementor-control .elementor-control-title,
+.elementor-control label {
+    text-align: right;
+}
+
+/* Input fields */
+.elementor-control input[type="text"],
+.elementor-control input[type="number"],
+.elementor-control textarea,
+.elementor-control select {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Icons in panel */
+.elementor-control-type-icon .elementor-control-input-wrapper {
+    direction: ltr;
+}
+
+/* Repeater controls */
+.elementor-repeater-fields-wrapper .elementor-repeater-row-tools {
+    float: left;
+}
+
+/* Section/Column panel icons */
+.elementor-editor-section-settings .elementor-column-handle,
+.elementor-editor-column-settings .elementor-column-handle {
+    direction: ltr;
+}
+
+/* Preview area RTL */
+#elementor-preview-iframe {
+    direction: rtl;
+}
+
+/* Tooltips */
+.elementor-tooltip {
+    direction: rtl;
+}
+
+/* Navigator */
+#elementor-navigator .elementor-navigator__item .elementor-navigator__item__title {
+    direction: rtl;
+}
