@@ -322,9 +322,10 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Highlight Shortcode  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_text_highlight_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
 
         ob_start();
         if(!empty($text)) : ?>
@@ -341,9 +342,10 @@ if(function_exists( 'pxl_register_shortcode' )) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_image_highlight_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'id_image' => '',
-        ), $atts));
+        ), $atts);
+        $id_image = $atts['id_image'];
 
         ob_start();
         if(!empty($id_image)) : 
@@ -404,9 +406,10 @@ if (function_exists('pxl_register_shortcode')) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_text_highlight_shortcode_editor( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
 
         ob_start();
         if(!empty($text)) : ?>
@@ -424,9 +427,10 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Typewriter Shortcode  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_text_typewriter_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
 
         ob_start();
         if(!empty($text)) : 
@@ -454,9 +458,10 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Square Animate */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_square_animate_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'columns' => '',
-        ), $atts));
+        ), $atts);
+        $columns = $atts['columns'];
 
         ob_start(); ?>
         <div class="pxl-square-animate">
@@ -477,13 +482,18 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Button Shortcode  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_btn_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
          'style' => '',
          'icon_class' => '',
          'text_color' => '',
          'bg_color' => '',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
+        $style = $atts['style'];
+        $icon_class = $atts['icon_class'];
+        $text_color = $atts['text_color'];
+        $bg_color = $atts['bg_color'];
 
         ob_start();
         if(!empty($text)) : ?>
@@ -513,10 +523,12 @@ if(function_exists( 'pxl_register_shortcode' )) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_btn_submit_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
          'style' => 'btn pxl-icon-active btn-icon-box pxl-icon--right wpcf7-submit',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
+        $style = $atts['style'];
 
         ob_start();
         if(!empty($text)) : ?>
@@ -534,10 +546,12 @@ if(function_exists( 'pxl_register_shortcode' )) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_slider_arrow( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'type' => 'next',
          'style' => 'style-1',
-        ), $atts));
+        ), $atts);
+        $type = $atts['type'];
+        $style = $atts['style'];
 
         ob_start(); ?>
          <div class="pxl-slider-rev-arrow">
@@ -556,11 +570,14 @@ if(function_exists( 'pxl_register_shortcode' )) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_text_gradient_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'text' => '',
          'form' => '',
          'to' => '',
-        ), $atts));
+        ), $atts);
+        $text = $atts['text'];
+        $form = $atts['form'];
+        $to = $atts['to'];
 
         ob_start();
         if(!empty($text)) : ?>
@@ -600,9 +617,10 @@ if(function_exists( 'pxl_register_shortcode' )) {
 
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_start_col_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'class' => 'col-12',
-        ), $atts));
+        ), $atts);
+        $class = $atts['class'];
         ob_start(); ?>
         <div class="<?php echo esc_attr($class); ?>">     
         <?php $output = ob_get_clean();
@@ -626,13 +644,18 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Gallery Shortcode  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_gallery_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'link_video' => '',
          'images_id' => '',
          'col' => '2',
          'img_size' => '600x368',
          'masonry' => '',
-        ), $atts));
+        ), $atts);
+        $link_video = $atts['link_video'];
+        $images_id = $atts['images_id'];
+        $col = $atts['col'];
+        $img_size = $atts['img_size'];
+        $masonry = $atts['masonry'];
 
         $pxl_g_id = uniqid();
 
@@ -680,11 +703,14 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Addd shortcode Video button */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_video_button_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'link' => '',
          'text' => '',
          'class' => 'pxl-btn-slide-video-style1',
-        ), $atts));
+        ), $atts);
+        $link = $atts['link'];
+        $text = $atts['text'];
+        $class = $atts['class'];
 
         ob_start();
         ?>
@@ -706,11 +732,14 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /////
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_button_shortcode_1( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'link' => '',
          'text' => '',
          'class' => 'pxl-btn-slide-style1',
-        ), $atts));
+        ), $atts);
+        $link = $atts['link'];
+        $text = $atts['text'];
+        $class = $atts['class'];
 
         ob_start();
         ?>
@@ -732,11 +761,14 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /////
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_button_shortcode_2( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'link' => '',
          'text' => '',
          'class' => 'pxl-btn-slide-style2',
-        ), $atts));
+        ), $atts);
+        $link = $atts['link'];
+        $text = $atts['text'];
+        $class = $atts['class'];
 
         ob_start();
         ?>
@@ -760,11 +792,14 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /////
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_button_shortcode_3( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'link' => '',
          'text' => '',
          'class' => 'pxl-btn-slide-style3',
-        ), $atts));
+        ), $atts);
+        $link = $atts['link'];
+        $text = $atts['text'];
+        $class = $atts['class'];
 
         ob_start();
         ?>
@@ -783,10 +818,12 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Get Category Shortcode  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_post_category_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'items' => '6',
          'columns' => '2',
-        ), $atts));
+        ), $atts);
+        $items = $atts['items'];
+        $columns = $atts['columns'];
 
         ob_start();
         $categories = get_categories(); ?>
@@ -812,10 +849,12 @@ if(function_exists( 'pxl_register_shortcode' )) {
 /* Slider 1  */
 if(function_exists( 'pxl_register_shortcode' )) {
     function saliver_slider_price_shortcode( $atts = array() ) {
-        extract(shortcode_atts(array(
+        $atts = shortcode_atts(array(
          'price' => '',
          'desc' => '',
-        ), $atts));
+        ), $atts);
+        $price = $atts['price'];
+        $desc = $atts['desc'];
 
         ob_start();
         if(!empty($price) || !empty($desc)) : ?>
