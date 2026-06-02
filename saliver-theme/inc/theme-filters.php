@@ -7,7 +7,7 @@
 
 
 function saliver_html_classes( $output ) {
-	$output = '';
+	// Do NOT reset $output — it contains lang= and dir="rtl" set by WordPress
 	$smooth_scroll = saliver()->get_theme_opt( 'smooth_scroll', 'off' );
 	if($smooth_scroll == 'on') {
 		$output .= ' class="html-smooth-scroll"';
